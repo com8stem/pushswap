@@ -1,0 +1,60 @@
+#include "push_swap.h"
+
+t_list	*ft_listnew(int newdate)
+{
+	t_list	*new;
+
+	new = (t_list *)malloc(sizeof(t_list));
+	if (new == NULL)
+		return (NULL);
+	new->data = newdate;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
+}
+
+t_list *createSentinel()
+{
+    t_list *sentinel;
+	sentinel = (t_list *)malloc(sizeof(t_list));
+    if (sentinel == NULL)
+		return (NULL);
+    sentinel->data = -1; // ダミーデータ、実際のデータは持たない
+    sentinel->next = sentinel;
+    sentinel->prev = sentinel;
+    return (sentinel);
+}
+
+void	ft_listaddlast(t_list *sentinel, t_list *new)
+{
+	t_list	*last;
+
+	last = sentinel->prev;
+	last->next = new;
+	new->prev = last;
+	new->next = sentinel;
+	sentinel->prev = new;
+}
+
+t_list	*ft_createlist(char **argv)
+{
+	size_t	i;
+	long	tmp;
+	int		data;
+	t_list	*current;
+	t_list	*sentinel;
+
+	i = 1;
+	sentinel = createSentinel();
+	while (argv[i] != NULL)
+	{
+		tmp = ft_atoi(argv[i]);
+		if (tmp > INT_MAX)
+			return (NULL);
+		data = (int)tmp;
+		current = ft_listnew(data);
+		ft_listaddlast(sentinel, current);
+		i++;
+	}
+	return (sentinel);
+}
