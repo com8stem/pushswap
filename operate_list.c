@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operate_list.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/04 21:40:29 by kishizu           #+#    #+#             */
+/*   Updated: 2023/12/11 19:25:53 by kishizu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-t_list *ft_swap(t_list **list)
+t_list	*ft_swap(t_list **list)
 {
     if (*list != NULL && (*list)->next != NULL && (*list)->next->next != NULL)
-    {
+	{
         t_list *first = (*list)->next;
         t_list *second = (*list)->next->next;
 
@@ -21,9 +33,9 @@ t_list *ft_swap(t_list **list)
         // Update the links for the element after the second element (if it exists)
         if (second->next != NULL)
             second->next->prev = second;
-    }
+	}
 
-    return *list;
+	return (*list);
 }
 
 t_list	*ft_push(t_list **from, t_list **to)
@@ -52,7 +64,7 @@ t_list	*ft_push(t_list **from, t_list **to)
 	if (from_second != *from)
 	{
 		from_second->prev = (*from);
-		(*from)->next = from_second;	
+		(*from)->next = from_second;
 	}
 	return (*to);
 }
@@ -73,7 +85,7 @@ t_list	*ft_rotate(t_list **list)
 	first->prev = last;
 	last->next = first;
 	second->prev = *list;
-	return(*list);
+	return (*list);
 }
 
 t_list	*ft_r_rotate(t_list **list)
@@ -92,5 +104,5 @@ t_list	*ft_r_rotate(t_list **list)
 	last->next = first;
 	last->prev = *list;
 	secondfromlast->next = *list;
-	return(*list);
+	return (*list);
 }
