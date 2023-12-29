@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-t_list	*ft_listnew(int newdate, int index)
+t_list	*ft_listnew(int newdata, int index)
 {
 	t_list	*new;
 
 	new = (t_list *)malloc(sizeof(t_list));
 	if (new == NULL)
 		return (NULL);
-	new->data = newdate;
+	new->data = newdata;
 	new->index = index;
 	new->next = NULL;
 	new->prev = NULL;
@@ -58,13 +58,13 @@ t_list	*ft_createlist(char **argv)
 	t_list	*current;
 	t_list	*sentinel;
 
-	i = 1;
+	i = 0;
 	sentinel = createSentinel();
 	while (argv[i] != NULL)
 	{
 		tmp = ft_atoi(argv[i]);
 		if (tmp > INT_MAX)
-			return (NULL);
+			put_ori_error("Error!");
 		data = (int)tmp;
 		current = ft_listnew(data, i - 1);
 		ft_listaddlast(sentinel, current);

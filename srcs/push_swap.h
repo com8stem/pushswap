@@ -16,7 +16,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include "./libft/libft.h"
+# include "../libft/libft.h"
+
+# define NO_ERROR 0
 
 typedef struct s_list
 {
@@ -26,22 +28,27 @@ typedef struct s_list
 	struct s_list	*prev;
 }	t_list;
 
+void put_ori_error(char *error_message);
+
+int check_argc(int argc);
+
 void	displayList(t_list *sentinel);
 t_list	*ft_createlist(char **argv);
-t_list	*ft_swap(t_list **list);
-t_list	*ft_push(t_list **from, t_list **to);
-t_list	*ft_rotate(t_list **list);
-t_list	*ft_r_rotate(t_list **list);
-void	ft_ss_swap(t_list **a, t_list **b);
-void	ft_rr_rotate(t_list **a, t_list **b);
-void	ft_reverse_rr_rotate(t_list **a, t_list **b);
 
-
-
+int	pa(t_list **a,t_list **b);
+int	pb(t_list **a,t_list **b);
+int	sa(t_list **a);
+int	sb(t_list **b);
+int	ss(t_list **a, t_list **b);
+int	ra(t_list **a);
+int	rb(t_list **b);
+int	rr(t_list **a, t_list **b);
+int	rra(t_list **a);
+int	rrb(t_list **b);
+int	rrr(t_list **a, t_list **b);
 
 t_list *createSentinel();
-
-
+int round_listsize(t_list *list);
 
 
 #endif
