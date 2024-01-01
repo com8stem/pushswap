@@ -23,11 +23,8 @@ static t_list	*push_list(t_list **from, t_list **to)
 	}
 	(*to)->next = from_first;
 	from_first->prev = *to;
-	// if (from_second != *from)
-	// {
-		from_second->prev = (*from);
-		(*from)->next = from_second;
-	// }
+	from_second->prev = (*from);
+	(*from)->next = from_second;
 	return (*to);
 }
 

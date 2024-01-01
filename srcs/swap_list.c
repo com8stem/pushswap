@@ -24,13 +24,6 @@ static t_list	*swap_list(t_list **list)
 	second->next = first;
 	second->prev = *list;
 	(*list)->next = second;
-	// Update the links for the first element
-
-	// Update the links for the second element
-
-	// Update the links for the third element
-
-	// Update the links for the element after the second element (if it exists)
 	return (*list);
 }
 

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_list	*ft_listnew(int newdata, int index)
+static t_list	*ft_listnew(int newdata, int index)
 {
 	t_list	*new;
 
@@ -33,13 +33,14 @@ t_list *createSentinel()
 	sentinel = (t_list *)malloc(sizeof(t_list));
 	if (sentinel == NULL)
 		return (NULL);
+	sentinel->index = -1;
 	sentinel->data = -1; // ダミーデータ、実際のデータは持たない
 	sentinel->next = sentinel;
 	sentinel->prev = sentinel;
 	return (sentinel);
 }
 
-void	ft_listaddlast(t_list *sentinel, t_list *new)
+static void	listaddlast(t_list *sentinel, t_list *new)
 {
 	t_list	*last;
 
@@ -66,8 +67,8 @@ t_list	*ft_createlist(char **argv)
 		if (tmp > INT_MAX)
 			put_ori_error("Error!");
 		data = (int)tmp;
-		current = ft_listnew(data, i - 1);
-		ft_listaddlast(sentinel, current);
+		current = ft_listnew(data, i);
+		listaddlast(sentinel, current);
 		i++;
 	}
 	return (sentinel);

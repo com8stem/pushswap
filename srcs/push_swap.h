@@ -19,6 +19,7 @@
 # include "../libft/libft.h"
 
 # define NO_ERROR 0
+# define DUMMY_NUM -1
 
 typedef struct s_list
 {
@@ -28,11 +29,11 @@ typedef struct s_list
 	struct s_list	*prev;
 }	t_list;
 
-void put_ori_error(char *error_message);
-
-int check_argc(int argc);
-
 void	displayList(t_list *sentinel);
+
+void	put_ori_error(char *error_message);
+int		check_argc(int argc);
+t_list *createSentinel();
 t_list	*ft_createlist(char **argv);
 
 int	pa(t_list **a,t_list **b);
@@ -47,8 +48,12 @@ int	rra(t_list **a);
 int	rrb(t_list **b);
 int	rrr(t_list **a, t_list **b);
 
-t_list *createSentinel();
 int round_listsize(t_list *list);
+int issorted(t_list *list);
+int get_min_list(t_list *list, int limit);
+int get_min_index(t_list *list);
 
+void	sort_small_list(t_list **a, t_list **b, int size);
+void sort_large_list(t_list **a, t_list **b, int size);
 
 #endif

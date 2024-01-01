@@ -7,7 +7,7 @@ BONUS = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c ft_ls
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS:.c=.o)
 
-CC = clang
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 

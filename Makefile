@@ -1,7 +1,7 @@
 TARGET = push_swap
 SRCDIR = ./srcs
-SRCS = $(addprefix $(SRCDIR)/, check.c create_list.c list_utils.c main.c push_list.c put_error.c r_rotate_list.c rotate_list.c swap_list.c)
-OBJS = check.o create_list.o list_utils.o main.o push_list.o put_error.o r_rotate_list.o rotate_list.o swap_list.o
+SRCS = $(addprefix $(SRCDIR)/, check.c create_list.c list_utils.c main.c push_list.c put_error.c r_rotate_list.c rotate_list.c sort_large_list.c sort_small_list.c swap_list.c)
+OBJS = $(patsubst $(SRCDIR)/%.c, ./%.o, $(SRCS))
 INCDIR = $(SRCDIR)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
