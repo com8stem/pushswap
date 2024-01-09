@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 21:40:24 by kishizu           #+#    #+#             */
-/*   Updated: 2024/01/09 18:33:28 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/01/09 22:06:51 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,22 @@ void	sort_list(t_list **a, t_list **b)
 		sort_large_list(a, b, size);
 }
 
+static void	free_list(t_list *a, t_list *b)
+{
+	t_list	*current;
+	t_list	*next_list;
+
+	current = a->next;
+	while (current != a)
+	{
+		next_list = current->next;
+		free(current);
+		current = next_list;
+	}
+	free (a);
+	free (b);
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	*a;
@@ -61,5 +77,6 @@ int	main(int argc, char **argv)
 	check_argc(argc);
 	init_list(argc, argv, &a, &b);
 	sort_list(&a, &b);
+	free_list(a, b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 17:36:23 by kishizu           #+#    #+#             */
-/*   Updated: 2024/01/09 20:57:31 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/01/09 22:07:04 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,21 +96,3 @@ t_list	*create_sentinel(void)
 	sentinel->prev = sentinel;
 	return (sentinel);
 }
-
-// void	displaylist(t_list *sentinel)
-// {
-// 	t_list	*current;
-
-// 	if (sentinel->next == sentinel)
-// 	{
-// 		printf("Empty list\n");
-// 		return ;
-// 	}
-// 	current = sentinel->next;
-// 	while (current != sentinel)
-// 	{
-// 		printf("[%d]", current->data);
-// 		current = current->next;
-// 	}
-// 	printf("\n");
-// }
