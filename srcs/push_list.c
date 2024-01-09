@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_list.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/05 17:36:16 by kishizu           #+#    #+#             */
+/*   Updated: 2024/01/05 17:41:52 by kishizu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static t_list	*push_list(t_list **from, t_list **to)
@@ -28,14 +40,14 @@ static t_list	*push_list(t_list **from, t_list **to)
 	return (*to);
 }
 
-int pa(t_list **a, t_list **b)
+int	pa(t_list **a, t_list **b)
 {
 	push_list(b, a);
 	ft_putendl_fd("pa", STDOUT_FILENO);
 	return (NO_ERROR);
 }
 
-int pb(t_list **a, t_list **b)
+int	pb(t_list **a, t_list **b)
 {
 	push_list(a, b);
 	ft_putendl_fd("pb", STDOUT_FILENO);

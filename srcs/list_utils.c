@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/05 17:36:23 by kishizu           #+#    #+#             */
+/*   Updated: 2024/01/09 18:36:08 by kishizu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int round_listsize(t_list *list)
+int	round_listsize(t_list *list)
 {
-	t_list *head;
-	t_list *current;
+	t_list	*head;
+	t_list	*current;
 	int		size;
 
 	head = list;
@@ -19,26 +31,26 @@ int round_listsize(t_list *list)
 	return (size);
 }
 
-int issorted(t_list *list)
+int	issorted(t_list *list)
 {
-	t_list *current;
-	int tmp;
+	t_list	*current;
+	int		tmp;
 
 	current = list->next;
 	tmp = current->data;
 	while (current != list)
 	{
 		if (current->data < tmp)
-			return(0);
+			return (0);
 		tmp = current->data;
 		current = current->next;
 	}
 	return (1);
 }
 
-int get_min_list(t_list *list, int limit)
+int	get_min_list(t_list *list, int limit)
 {
-	t_list *current;
+	t_list	*current;
 	int		min_data;
 
 	current = list->next;
@@ -52,9 +64,9 @@ int get_min_list(t_list *list, int limit)
 	return (min_data);
 }
 
-int get_min_index(t_list *list)
+int	get_min_index(t_list *list)
 {
-	t_list *current;
+	t_list	*current;
 	int		min_data;
 	int		min_index;
 
@@ -71,18 +83,35 @@ int get_min_index(t_list *list)
 	return (min_index);
 }
 
-void displayList(t_list *sentinel)
+t_list	*create_sentinel(void)
 {
-    if (sentinel->next == sentinel)
-    {
-        printf("Empty list\n");
-        return;
-    }
-    t_list *current = sentinel->next;
-    while (current != sentinel) // 適当な回数で終了するように制限
-    {
-        printf("[%d]", current->data);
-        current = current->next;
-    }
-	printf("\n");
+	t_list	*sentinel;
+
+	sentinel = (t_list *)malloc(sizeof(t_list));
+	if (sentinel == NULL)
+		return (NULL);
+	sentinel->index = -1;
+	sentinel->data = -1; //ダミー
+	sentinel->next = sentinel;
+	sentinel->prev = sentinel;
+	return (sentinel);
 }
+
+
+// void	displaylist(t_list *sentinel)
+// {
+// 	t_list	*current;
+
+// 	if (sentinel->next == sentinel)
+// 	{
+// 		printf("Empty list\n");
+// 		return ;
+// 	}
+// 	current = sentinel->next;
+// 	while (current != sentinel)
+// 	{
+// 		printf("[%d]", current->data);
+// 		current = current->next;
+// 	}
+// 	printf("\n");
+// }

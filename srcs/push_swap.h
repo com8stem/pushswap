@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 21:40:13 by kishizu           #+#    #+#             */
-/*   Updated: 2023/12/05 16:32:50 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/01/09 18:33:16 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include "../libft/libft.h"
 
 # define NO_ERROR 0
-# define DUMMY_NUM -1
 
 typedef struct s_list
 {
@@ -29,31 +28,31 @@ typedef struct s_list
 	struct s_list	*prev;
 }	t_list;
 
-void	displayList(t_list *sentinel);
+void	displaylist(t_list *sentinel);
 
 void	put_ori_error(char *error_message);
 int		check_argc(int argc);
-t_list *createSentinel();
+t_list	*create_sentinel(void);
 t_list	*ft_createlist(char **argv);
 
-int	pa(t_list **a,t_list **b);
-int	pb(t_list **a,t_list **b);
-int	sa(t_list **a);
-int	sb(t_list **b);
-int	ss(t_list **a, t_list **b);
-int	ra(t_list **a);
-int	rb(t_list **b);
-int	rr(t_list **a, t_list **b);
-int	rra(t_list **a);
-int	rrb(t_list **b);
-int	rrr(t_list **a, t_list **b);
+int		pa(t_list **a, t_list **b);
+int		pb(t_list **a, t_list **b);
+int		sa(t_list **a);
+int		sb(t_list **b);
+int		ss(t_list **a, t_list **b);
+int		ra(t_list **a);
+int		rb(t_list **b);
+int		rr(t_list **a, t_list **b);
+int		rra(t_list **a);
+int		rrb(t_list **b);
+int		rrr(t_list **a, t_list **b);
 
-int round_listsize(t_list *list);
-int issorted(t_list *list);
-int get_min_list(t_list *list, int limit);
-int get_min_index(t_list *list);
+int		round_listsize(t_list *list);
+int		issorted(t_list *list);
+int		get_min_list(t_list *list, int limit);
+int		get_min_index(t_list *list);
 
 void	sort_small_list(t_list **a, t_list **b, int size);
-void sort_large_list(t_list **a, t_list **b, int size);
+void	sort_large_list(t_list **a, t_list **b, int size);
 
 #endif

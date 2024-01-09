@@ -6,13 +6,13 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 21:40:17 by kishizu           #+#    #+#             */
-/*   Updated: 2023/12/11 19:30:02 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/01/09 18:35:59 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_list	*ft_listnew(int newdata, int index)
+static t_list	*ft_listnew(int newdata)
 {
 	t_list	*new;
 
@@ -20,24 +20,10 @@ static t_list	*ft_listnew(int newdata, int index)
 	if (new == NULL)
 		return (NULL);
 	new->data = newdata;
-	new->index = index;
+	new->index = -1;
 	new->next = NULL;
 	new->prev = NULL;
 	return (new);
-}
-
-t_list *createSentinel()
-{
-    t_list *sentinel;
-
-	sentinel = (t_list *)malloc(sizeof(t_list));
-	if (sentinel == NULL)
-		return (NULL);
-	sentinel->index = -1;
-	sentinel->data = -1; // ダミーデータ、実際のデータは持たない
-	sentinel->next = sentinel;
-	sentinel->prev = sentinel;
-	return (sentinel);
 }
 
 static void	listaddlast(t_list *sentinel, t_list *new)
@@ -51,6 +37,56 @@ static void	listaddlast(t_list *sentinel, t_list *new)
 	sentinel->prev = new;
 }
 
+static t_list	*get_min_inorder(t_list **list)
+{
+	t_list	*current;
+	t_list	*min;
+	int		has_min;
+
+	min = NULL;
+	has_min = 0;
+	current = (*list)->next;
+	if (current != NULL)
+	{
+		while (current != *list)
+		{
+			if ((current->index == -1) && (has_min == 0 || current->data < min->data))
+			{
+				min = current;
+				has_min = 1;
+			}
+			current = current->next;
+		}
+	}
+	return (min);
+}
+
+void add_index2list(t_list **list)
+{
+	t_list	*current;
+	int		index;
+
+	index = 0;
+	current = get_min_inorder(list);
+	while (current != NULL)
+	{
+		current->index = index++;
+		current = get_min_inorder(list);
+	}
+}
+
+void check_arg_isdigit(long tmp, char *str)
+{
+	if (tmp < 0)
+		str++;
+	while (*str != '\0')
+	{
+		if (ft_isdigit(*str) == 0)
+			put_ori_error("Error");
+		str++;
+	}
+}
+
 t_list	*ft_createlist(char **argv)
 {
 	size_t	i;
@@ -60,16 +96,18 @@ t_list	*ft_createlist(char **argv)
 	t_list	*sentinel;
 
 	i = 0;
-	sentinel = createSentinel();
+	sentinel = create_sentinel();
 	while (argv[i] != NULL)
 	{
 		tmp = ft_atoi(argv[i]);
-		if (tmp > INT_MAX)
-			put_ori_error("Error!");
+		check_arg_isdigit(tmp, argv[i]);
+		if (tmp > INT_MAX || tmp < INT_MIN)
+			put_ori_error("Error");
 		data = (int)tmp;
-		current = ft_listnew(data, i);
+		current = ft_listnew(data);
 		listaddlast(sentinel, current);
 		i++;
 	}
+	add_index2list(&sentinel);
 	return (sentinel);
 }

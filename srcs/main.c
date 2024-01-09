@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 21:40:24 by kishizu           #+#    #+#             */
-/*   Updated: 2023/12/11 19:50:30 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/01/09 18:33:28 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_ft_split(char **ptr)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (ptr[i] != NULL)
@@ -39,12 +39,12 @@ void	init_list(int argc, char **argv, t_list **a, t_list **b)
 	}
 	else
 		*a = ft_createlist(&argv[1]);
-	*b = createSentinel();
+	*b = create_sentinel();
 }
 
 void	sort_list(t_list **a, t_list **b)
 {
-	int size;
+	int	size;
 
 	size = round_listsize(*a);
 	if (size < 6)
@@ -60,13 +60,6 @@ int	main(int argc, char **argv)
 
 	check_argc(argc);
 	init_list(argc, argv, &a, &b);
-	
-	displayList(a);
-
 	sort_list(&a, &b);
-
-	displayList(a);
-	displayList(b);
-
 	return (0);
 }

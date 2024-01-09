@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   r_rotate_list.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/05 17:36:08 by kishizu           #+#    #+#             */
+/*   Updated: 2024/01/05 17:39:35 by kishizu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static t_list	*r_rotate_list(t_list **list)
@@ -9,7 +21,6 @@ static t_list	*r_rotate_list(t_list **list)
 	first = (*list)->next;
 	last = (*list)->prev;
 	secondfromlast = (*list)->prev->prev;
-
 	(*list)->next = last;
 	(*list)->prev = secondfromlast;
 	first->prev = last;
@@ -19,21 +30,21 @@ static t_list	*r_rotate_list(t_list **list)
 	return (*list);
 }
 
-int rra(t_list **a)
+int	rra(t_list **a)
 {
 	r_rotate_list(a);
 	ft_putendl_fd("rra", STDOUT_FILENO);
 	return (NO_ERROR);
 }
 
-int rrb(t_list **b)
+int	rrb(t_list **b)
 {
 	r_rotate_list(b);
 	ft_putendl_fd("rrb", STDOUT_FILENO);
 	return (NO_ERROR);
 }
 
-int rrr(t_list **a, t_list **b)
+int	rrr(t_list **a, t_list **b)
 {
 	r_rotate_list(a);
 	r_rotate_list(b);
