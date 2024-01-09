@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 17:35:50 by kishizu           #+#    #+#             */
-/*   Updated: 2024/01/09 17:28:04 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/01/09 21:53:37 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,49 +21,33 @@ static void	sort_two_list(t_list **a)
 
 static void	sort_three_list(t_list **a)
 {
-	t_list	*current;
-	int		min_data;
-	int		next_min_data;
+	t_list	*first;
+	t_list	*second;
+	t_list	*third;
 
-	current = (*a)->next;
-	min_data = get_min_list(*a, -1);
-	next_min_data = get_min_list(*a, min_data);
-	if (issorted(*a))
-		return ;
-	if (current->data == min_data && current->next->data != next_min_data)
+	first = (*a)->next;
+	second = first->next;
+	third = second->next;
+	if (!(first->data > second->data && second->data < third->data
+			&& first->data > third->data) && !(first->data < second->data
+			&& second->data > third->data && first->data > third->data))
 	{
-		ra(a);
 		sa(a);
+		first = (*a)->next;
+		second = first->next;
+		third = second->next;
+	}
+	if (first->data > second->data)
+		ra(a);
+	else if (first->data > third->data)
 		rra(a);
-	}
-	else if (current->data == next_min_data)
-	{
-		if (current->next->data == min_data)
-			sa(a);
-		else
-			rra(a);
-	}
-	else
-	{
-		if (current->next->data == min_data)
-			ra(a);
-		else
-		{
-			sa(a);
-			rra(a);
-		}
-	}
 }
 
 static void	sort_four_list(t_list **a, t_list **b)
 {
 	int	min_index;
 
-	if (issorted(*a))
-		return ;
 	min_index = get_min_index(*a);
-	// displaylist(*a);
-	// printf("[%d]\n", min_index);
 	if (min_index == 1)
 		ra(a);
 	else if (min_index == 2)
@@ -84,10 +68,7 @@ static void	sort_five_list(t_list **a, t_list **b)
 {
 	int	min_index;
 
-	if (issorted(*a))
-		return ;
 	min_index = get_min_index(*a);
-	// printf("[%d]\n", min_index);
 	if (min_index == 1)
 		ra(a);
 	else if (min_index == 2)
@@ -111,8 +92,9 @@ static void	sort_five_list(t_list **a, t_list **b)
 
 void	sort_small_list(t_list **a, t_list **b, int size)
 {
-	(void)b;
 	if (size == 1)
+		return ;
+	else if (issorted(*a))
 		return ;
 	else if (size == 2)
 		sort_two_list(a);

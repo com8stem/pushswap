@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 17:36:23 by kishizu           #+#    #+#             */
-/*   Updated: 2024/01/09 18:36:08 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/01/09 20:57:31 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,12 +91,11 @@ t_list	*create_sentinel(void)
 	if (sentinel == NULL)
 		return (NULL);
 	sentinel->index = -1;
-	sentinel->data = -1; //ダミー
+	sentinel->data = -1;
 	sentinel->next = sentinel;
 	sentinel->prev = sentinel;
 	return (sentinel);
 }
-
 
 // void	displaylist(t_list *sentinel)
 // {
