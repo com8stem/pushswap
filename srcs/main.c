@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 21:40:24 by kishizu           #+#    #+#             */
-/*   Updated: 2024/01/09 22:06:51 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/01/11 17:15:20 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int	main(int argc, char **argv)
 
 	check_argc(argc);
 	init_list(argc, argv, &a, &b);
+	check_list_data(a);
 	sort_list(&a, &b);
 	free_list(a, b);
 	return (0);

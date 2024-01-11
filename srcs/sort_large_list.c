@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 17:36:00 by kishizu           #+#    #+#             */
-/*   Updated: 2024/01/09 18:34:11 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/01/11 17:13:09 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	get_max_bit(t_list **list)
 	int		max_bit;
 
 	current = (*list)->next;
-	max = current->data;
+	max = current->index;
 	max_bit = 0;
 	while (current != *list)
 	{

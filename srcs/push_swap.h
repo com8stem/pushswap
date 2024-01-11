@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 21:40:13 by kishizu           #+#    #+#             */
-/*   Updated: 2024/01/09 20:55:50 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/01/11 17:11:16 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	displaylist(t_list *sentinel);
 
 void	put_ori_error(char *error_message);
 int		check_argc(int argc);
+int		check_list_data(t_list *list);
 t_list	*create_sentinel(void);
 t_list	*ft_createlist(char **argv);
 
