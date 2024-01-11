@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 21:40:13 by kishizu           #+#    #+#             */
-/*   Updated: 2024/01/11 17:11:16 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/01/11 17:38:56 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ typedef struct s_list
 	struct s_list	*next;
 	struct s_list	*prev;
 }	t_list;
-
-void	displaylist(t_list *sentinel);
 
 void	put_ori_error(char *error_message);
 int		check_argc(int argc);
@@ -53,7 +51,7 @@ int		rrr(t_list **a, t_list **b);
 
 int		round_listsize(t_list *list);
 int		issorted(t_list *list);
-int		get_min_list(t_list *list, int limit);
+int		get_min_list(t_list *list);
 int		get_min_index(t_list *list);
 
 void	sort_small_list(t_list **a, t_list **b, int size);

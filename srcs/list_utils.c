@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 17:36:23 by kishizu           #+#    #+#             */
-/*   Updated: 2024/01/09 22:07:04 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/01/11 17:37:10 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	issorted(t_list *list)
 	return (1);
 }
 
-int	get_min_list(t_list *list, int limit)
+int	get_min_list(t_list *list)
 {
 	t_list	*current;
 	int		min_data;
@@ -57,7 +57,7 @@ int	get_min_list(t_list *list, int limit)
 	min_data = current->data;
 	while (current != list)
 	{
-		if (current->data < min_data && current->data != limit)
+		if (current->data < min_data)
 			min_data = current->data;
 		current = current->next;
 	}
@@ -71,7 +71,7 @@ int	get_min_index(t_list *list)
 	int		min_index;
 
 	current = list->next;
-	min_data = get_min_list(list, -1);
+	min_data = get_min_list(list);
 	min_index = 0;
 	while (current != list)
 	{
