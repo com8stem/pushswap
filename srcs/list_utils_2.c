@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:54:41 by kishizu           #+#    #+#             */
-/*   Updated: 2024/01/09 20:55:14 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/01/11 18:21:43 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*ft_listnew(int newdata)
 
 	new = (t_list *)malloc(sizeof(t_list));
 	if (new == NULL)
-		return (NULL);
+		put_ori_error("malloc error");
 	new->data = newdata;
 	new->index = -1;
 	new->next = NULL;

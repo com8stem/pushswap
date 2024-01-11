@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 17:36:23 by kishizu           #+#    #+#             */
-/*   Updated: 2024/01/11 17:37:10 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/01/11 18:21:39 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ t_list	*create_sentinel(void)
 
 	sentinel = (t_list *)malloc(sizeof(t_list));
 	if (sentinel == NULL)
-		return (NULL);
+		put_ori_error("malloc error");
 	sentinel->index = -1;
 	sentinel->data = -1;
 	sentinel->next = sentinel;

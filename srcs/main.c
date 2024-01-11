@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 21:40:24 by kishizu           #+#    #+#             */
-/*   Updated: 2024/01/11 17:15:20 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/01/11 18:24:08 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	init_list(int argc, char **argv, t_list **a, t_list **b)
 	{
 		tmp_argv = ft_split(argv[1], ' ');
 		if (tmp_argv == NULL)
-			put_ori_error("malloc");
+			put_ori_error("malloc error");
 		*a = ft_createlist(tmp_argv);
 		free_ft_split(tmp_argv);
 	}
