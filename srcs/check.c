@@ -53,6 +53,8 @@ int	check_list_data(t_list *list)
 
 	current = list->next;
 	data_count = round_listsize(list);
+	if (data_count == 0)
+		put_ori_error("Error");
 	data_copy = (int *)malloc(data_count * sizeof(int));
 	i = 0;
 	while (i < data_count)
