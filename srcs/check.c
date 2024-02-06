@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 17:36:28 by kishizu           #+#    #+#             */
-/*   Updated: 2024/01/11 17:11:52 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/02/06 15:19:22 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	check_argc(int argc)
 {
 	if (argc < 2)
 	{
-		ft_putendl_fd("Error", STDOUT_FILENO);
 		exit(EXIT_SUCCESS);
 	}
 	return (NO_ERROR);
