@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 21:40:24 by kishizu           #+#    #+#             */
-/*   Updated: 2024/01/11 18:24:08 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/02/06 21:22:28 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	sort_list(t_list **a, t_list **b)
 {
 	int	size;
 
+	if (issorted(*a))
+		return ;
 	size = round_listsize(*a);
 	if (size < 6)
 		sort_small_list(a, b, size);

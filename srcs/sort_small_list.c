@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 17:35:50 by kishizu           #+#    #+#             */
-/*   Updated: 2024/01/09 21:53:37 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/02/06 21:23:39 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,6 @@ static void	sort_five_list(t_list **a, t_list **b)
 void	sort_small_list(t_list **a, t_list **b, int size)
 {
 	if (size == 1)
-		return ;
-	else if (issorted(*a))
 		return ;
 	else if (size == 2)
 		sort_two_list(a);
