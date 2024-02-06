@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 21:40:13 by kishizu           #+#    #+#             */
-/*   Updated: 2024/01/11 17:38:56 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/02/06 21:14:41 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_list	*ft_createlist(char **argv);
 
 t_list	*ft_listnew(int newdata);
 void	listaddlast(t_list *sentinel, t_list *new);
+int		ps_atoi(const char *str);
 
 int		pa(t_list **a, t_list **b);
 int		pb(t_list **a, t_list **b);

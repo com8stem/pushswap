@@ -6,7 +6,7 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 21:40:17 by kishizu           #+#    #+#             */
-/*   Updated: 2024/01/09 20:56:50 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/02/06 21:12:17 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ t_list	*ft_createlist(char **argv)
 	sentinel = create_sentinel();
 	while (argv[i] != NULL)
 	{
-		tmp = ft_atoi(argv[i]);
+		tmp = ps_atoi(argv[i]);
 		check_arg_isdigit(tmp, argv[i]);
 		if (tmp > INT_MAX || tmp < INT_MIN)
 			put_ori_error("Error");
