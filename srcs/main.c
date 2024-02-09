@@ -6,13 +6,13 @@
 /*   By: kishizu <kishizu@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 21:40:24 by kishizu           #+#    #+#             */
-/*   Updated: 2024/02/06 21:22:28 by kishizu          ###   ########.fr       */
+/*   Updated: 2024/02/09 18:44:21 by kishizu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_ft_split(char **ptr)
+static void	free_ft_split(char **ptr)
 {
 	size_t	i;
 
@@ -25,7 +25,7 @@ void	free_ft_split(char **ptr)
 	free(ptr);
 }
 
-void	init_list(int argc, char **argv, t_list **a, t_list **b)
+static void	init_list(int argc, char **argv, t_list **a, t_list **b)
 {
 	char	**tmp_argv;
 
@@ -42,7 +42,7 @@ void	init_list(int argc, char **argv, t_list **a, t_list **b)
 	*b = create_sentinel();
 }
 
-void	sort_list(t_list **a, t_list **b)
+static void	sort_list(t_list **a, t_list **b)
 {
 	int	size;
 
